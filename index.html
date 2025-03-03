@@ -9,9 +9,9 @@
             color: white;
             font-family: Arial, sans-serif;
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
+            align-items: center;
+            flex-direction: column;
             height: 100vh;
             margin: 0;
         }
@@ -32,7 +32,7 @@
     </style>
 </head>
 <body>
-<img src="imgs/twitch logo.jpg" alt="Twitch Logo" width="200px">
+<img src="imgs/twitch logo.jpg" alt="Twitch Logo" width="300px">
 
 <h1 id="loading-text">Twitch is starting up, just a moment...</h1>
 
@@ -49,7 +49,7 @@
             if (width >= 100) {
                 clearInterval(interval);
             } else {
-                width += Math.random() * 5;
+                width += Math.random() * 5; // Random increase between 0-5%
                 if (width > 100) width = 100;
                 progressBar.style.width = width + "%";
             }
