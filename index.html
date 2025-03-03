@@ -41,11 +41,11 @@
 
     function updateProgress() {
         let interval = setInterval(function() {
-            if (width >= 99) {
+            if (width >= 100) {
                 clearInterval(interval);
             } else {
                 width += Math.random() * 5; // Random increase between 0-5%
-                if (width > 99) width = 99;
+                if (width > 100) width = 100;
                 progressBar.style.width = width + "%";
             }
         }, 300);
