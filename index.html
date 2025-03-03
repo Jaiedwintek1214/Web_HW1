@@ -4,22 +4,54 @@
     <meta charset="UTF-8">
     <title>Twitch</title>
     <style>
-        body{
+        body {
             background-color: #9659ff;
+            text-align: center;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .progress-container {
+            width: 300px;
+            height: 20px;
+            background-color: #ddd;
+            border-radius: 10px;
+            margin: 50px auto;
+            overflow: hidden;
+        }
+        .progress-bar {
+            width: 0%;
+            height: 100%;
+            background-color: white;
+            transition: width 0.3s ease-in-out;
         }
     </style>
 </head>
 <body>
-    <img src="imgs/twitch logo.jpg" alt="twitch logo" style="display: block; margin: 0 auto;">
-    <script>
-        var text = document.createElement("h1");
-        text.innerHTML = "Wait for Twitch to load";
-        text.style.color = "white";
-        text.style.fontSize = "60px";
-        text.style.textAlign = "center";
-        text.style.margin = "0 auto";
-        document.body.appendChild(text);
-    </script>
-    <img src="imgs/progress bar.gif" alt="progress bar" style="display: block; margin: 0 auto; width: 120px; margin-top: 50px;">
+<img src="imgs/twitch logo.jpg" alt="twitch logo" style="display: block; margin: 0 auto;">
+
+<h1 id="loading-text">Twitch is starting up, just a moment...</h1>
+
+<div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+</div>
+
+<script>
+    let progressBar = document.getElementById("progressBar");
+    let width = 0;
+
+    function updateProgress() {
+        let interval = setInterval(function() {
+            if (width >= 99) {
+                clearInterval(interval);
+            } else {
+                width += Math.random() * 5; // Random increase between 0-5%
+                if (width > 99) width = 99;
+                progressBar.style.width = width + "%";
+            }
+        }, 300);
+    }
+
+    updateProgress();
+</script>
 </body>
 </html>
